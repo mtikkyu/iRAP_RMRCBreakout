@@ -2,7 +2,7 @@ iRAP@KMUTNB x iMAKE
 
 This library creating by iRAP Robot from KMUTNB for use in RMRC competition.
 
-iRAP_RMRCBreakout Library
+iRAP_RMRCBreakout Library.
 You will need to download additional libraries to get started with the "iRAP_RMRCBreakout" Library.
 | Additional Library | Link for download |
 | --- | ---|
