@@ -1,13 +1,24 @@
 // This library creating by "iRAP Robot" from "KMUTNB" for use in RMRC competition.
 
-#pragma once
+#ifndef RMRC_BREAKOUT_h
+#define RMRC_BREAKOUT_h
 
 #include <Arduino.h>
 #include <Wire.h>
+#include <MadgwickAHRS.h>
 
-#define MAXIMUM_DUTY (int16_t)(16999)
+#if defined(ARDUINO_SAMD_NANO_33_IOT)
+#include <Arduino_LSM6DS3.h>
+#elif defined(ARDUINO_ARCH_NRF52840)
+#include <Arduino_LSM9DS1.h>
+#else 
+#error "This code is intended for the Arduino Nano 33 IoT or Nano 33 BLE only."
+#endif
+
+#define MAXIMUM_DUTY (int16_t)(16999) 
 #define BASE_ADDR    (uint8_t)(0x12)
 #define FLIPPER_ADDR (uint8_t)(0x13)
+#define IMU_FEEDBACK_RATE (float)(104.0f) // Hz
 
 typedef enum {
   SET_DUTY = 0,
@@ -69,3 +80,27 @@ class RMRC_Flipper : public RMRC_Breakout {
     int16_t getOffset(void);
     int16_t getKAngle(void);
 };
+
+class RMRC_IMU : public RMRC_Breakout {
+  public:
+    void begin(void);
+
+    float ax = 0.0f;
+    float ay = 0.0f;
+    float az = 0.0f;
+
+    float gx = 0.0f;
+    float gy = 0.0f;
+    float gz = 0.0f;
+
+    float yaw = 0.0f;
+    float pitch = 0.0f;
+    float roll = 0.0f;
+
+    void update(void);
+  private:
+    Madgwick filter_imu;
+    static bool initialized_imu;
+};
+
+#endif
