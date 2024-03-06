@@ -7,4 +7,4 @@ You will need to download additional libraries to get started with the "iRAP_RMR
 | Arduino_LSM6DS3 | https://github.com/arduino-libraries/Arduino_LSM6DS3 |
 | MadgwickAHRS | https://github.com/arduino-libraries/MadgwickAHRS/tree/master |
 
-![Nano shield4](https://github.com/mtikkyu/iRAP_RMRCBreakout/assets/57050828/278da2ff-85e5-472e-82ed-ec096194ff26)
+![Nano shield4](https://github.com/mtikkyu/iRAP_RMRCBreakout/assets/57050828/12b14ddf-ed19-4410-934f-7aa035878f3d)
